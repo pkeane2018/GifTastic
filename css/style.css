@@ -1,0 +1,13 @@
+#bigbox {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    margin: 10px;
+}
+
+.gif {
+    float: left;
+    margin: 5px;
+}
