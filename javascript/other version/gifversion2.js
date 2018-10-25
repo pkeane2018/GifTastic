@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-    var giftypes = ["Spider-man", "Batman", "Bugs Bunny",]
+    var giftypes = ["Spider-man", "Batman", "Superman", "Bugs Bunny",]
 
-    function addgifs () {
+    $(".gif-btn").click(function() {
         
         var gifsadded = false;
 
@@ -11,7 +11,7 @@ $(document).ready(function() {
         var keyword = $(this).attr("data-name");
         console.log(keyword);
 
-        var queryURL =  "https://api.giphy.com/v1/gifs/search?q=" + keyword + "&limit=10&api_key=d5XSa6kCGKCoZ4Fp2ytaE7zq69DYDUCs";
+        var queryURL =  "https://api.giphy.com/v1/gifs/search?q=" + keyword + "&api_key=d5XSa6kCGKCoZ4Fp2ytaE7zq69DYDUCs";
 
         $.ajax({
             url : queryURL,
@@ -26,7 +26,7 @@ $(document).ready(function() {
             var rating = boo[i].rating;
             gifdiv.append(rating);
             gifdiv.append("<br>");
-            var imageURL = boo[i].images.fixed_height_still.url;
+            var imageURL = boo[i].images.fixed_height.url;
             var newgif = $("<img>");
             newgif.attr("src" , imageURL);
             newgif.attr("alt" , "didn't work");
@@ -41,7 +41,7 @@ $(document).ready(function() {
 
         return gifsadded = true;
 
-    }
+    })
     
 function makebuttons() {
     $("#new-buttons").empty();
@@ -50,8 +50,6 @@ function makebuttons() {
 
     var a = $("<button>");
     a.addClass("gif-btn");
-    a.addClass("btn");
-    a.addClass("btn-secondary");
     a.attr("data-name", giftypes[i]);
     a.text(giftypes[i]); 
     $("#new-buttons").append(a);
@@ -68,9 +66,7 @@ $("#add-gif-btn").on("click", function(event) {
     makebuttons();
     })
 
-$(document).on("click", ".gif-btn", addgifs);
-
-function changestate() {
+$(".gif").click(function(){
     console.log("made it here");
     var state = $(this).attr("data-state");
     if (state === "still") {
@@ -80,12 +76,9 @@ function changestate() {
       $(this).attr("src", $(this).attr("data-still"));
       $(this).attr("data-state", "still");
     }
-  };
-
-$(document).on("click", ".gif", changestate)
+  });
 
 makebuttons();
 
 })
-
 
