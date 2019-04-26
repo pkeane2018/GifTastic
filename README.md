@@ -9,6 +9,8 @@ The main directory file contains the 'index.html' file, Readme.md file, the 'css
 
 ## How to use
 Users input the name of new characters into the text box. Javascript code then creates a new button which contains the name of this character and places it to the right of the other character buttons. Clicking on any of these buttons will start another function which uses the character's name as a keyword to retrieve a series of gifs related to this character from the Giphy API and place them in a div on the page. Each gif has a rating, which is placed above gif in the div. The limit parameter is placed in the url for this function so that only 10 results are retrieved. Whenever a new character button is clicked, the div containing the gifs is emptied, if it contains any gifs, and 10 gifs from the new character populate the div. Initially, a still image version of the gif is displayed. Clicking on each gif will call another function which replaces the still image with an animated gif. Clicking on the animated gif will likewise replace it with the still image once again. 
+<br><br>
+![Add-button](./gifs/add-button.gif)
 
 ## Technology used
 * HTML
